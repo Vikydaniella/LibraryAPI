@@ -1,8 +1,8 @@
 <?php
-class BookController {
-    public function getBooks() 
+class UserController {
+    public function getUser() 
     {require_once "./Database.php";
-        $sql = "SELECT * from books";
+        $sql = "SELECT * from users";
         $result = $conn->query($sql);
         $rows = array();
         while ($r = mysqli_fetch_assoc($result)) {
