@@ -1,5 +1,7 @@
 <?php
 class BookController {
+    public function processRequest(string $method) : void 
+
     public function getBooks() 
     {require_once "./Database.php";
         $sql = "SELECT * from books";
