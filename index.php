@@ -8,13 +8,15 @@ header("Content-type: application/json");
 //echo(json_encode('Welcome to my library API'));
 
 $requesturl = $_SERVER["REQUEST_URI"];
+$requestMethod = $_SERVER["REQUEST_METHOD"];
 $requesturlparts = explode("/",$requesturl); 
+$id = $requesturlparts[3]; 
 
-$requestmethod = $_SERVER["REQUEST_METHOD"];
+/*$requestmethod = $_SERVER["REQUEST_METHOD"];
 print_r($requesturl);
 echo "\n";
 print_r($requesturlparts);
-exit;
+exit;*/
 
 if ($requesturlparts[1] != "libraryapi") {
     http_response_code(404);
@@ -23,7 +25,8 @@ exit;
 if ($requesturlparts[2] == "books") {
     //echo(json_encode("You are requesting for books."));
     $booksController = new BookController();
-    $booksController->getBooks();
+    $booksController->processRequest($requestMethod,$id);
+    //$booksController->getBooks();
     exit;
 }
  elseif ($requesturlparts[2] == "author") {
