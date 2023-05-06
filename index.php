@@ -26,7 +26,6 @@ if ($requesturlparts[2] == "books") {
     //echo(json_encode("You are requesting for books."));
     $booksController = new BookController();
     $booksController->processRequest($requestMethod,$id);
-    //$booksController->getBooks();
     exit;
 }
  elseif ($requesturlparts[2] == "author") {
