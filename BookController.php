@@ -30,12 +30,11 @@ echo "You are trying to post.";
 
     public function getBook(string $id) 
     {require_once "./Database.php";
-        $sql = "SELECT * from books";
+        $sql = "SELECT * from 'Library' where id=1";
         $result = $conn->query($sql);
         $rows = array();
         while ($r = mysqli_fetch_assoc($result)) {
             $rows[] = $r;
-            SELECT * FROM Library WHERE ID='1';
         }
         echo json_encode($rows);
 
