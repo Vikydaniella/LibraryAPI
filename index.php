@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 require_once "BookController.php";
 require_once "AuthorController.php";
@@ -26,20 +29,20 @@ if ($requesturlparts[2] == "books") {
     //echo(json_encode("You are requesting for books."));
     $booksController = new BookController();
     $booksController->processRequest($requestMethod,$id);
-    exit;
+    //exit;
 }
- elseif ($requesturlparts[2] == "author") {
+ elseif ($requesturlparts[2] == "authors") {
     //echo(json_encode("You are searching for an anthor."));
     $authorController = new AuthorController();
-    $authorController->getAuthor();
-    exit;
+    $authorController->processRequest($requestMethod,$id);
+    //exit;
 }
 
-elseif ($requesturlparts[2] == "user") {
+elseif ($requesturlparts[2] == "users") {
     //echo(json_encode("You are searching for a user."));
     $userController = new UserController();
-    $userController->getuser();
-    exit;
+    $userController->processRequest($requestMethod,$id);
+    //exit;
 }
 
 else { 

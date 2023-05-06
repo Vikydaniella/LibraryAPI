@@ -44,12 +44,11 @@ class UserController {
       private function createUsers() {
         require_once "./Database.php";
         print_r($_POST);
-        $title = $_POST['title'];
-        $author = $_POST['author'];
-        $category = $_POST['year_of_publication'];
-        $isbn = $_POST['isbn'];
-        $quantity = $_POST['quantity'];
-        $sql = "INSERT INTO Books(title, author, category, year_of_publication, isbn, quantity)
-  VALUES ('title', 'author', 'category', 'year_of_publication', 'isbn', 'quantity')";
+        $firstname = $_POST['fname'];
+        $lastname = $_POST['lname'];
+        $email = $_POST['email'];
+        $gender = $_POST['gender'];
+        $sql = "INSERT INTO Users(fname, lname, email, gender)
+  VALUES ('fname', 'lname', 'email', 'gender')";
       }
   }

@@ -48,7 +48,14 @@ class BookController {
       $category = $_POST['year_of_publication'];
       $isbn = $_POST['isbn'];
       $quantity = $_POST['quantity'];
-      $sql = "INSERT INTO Books(title, author, category, year_of_publication, isbn, quantity)
-VALUES ('title', 'author', 'category', 'year_of_publication', 'isbn', 'quantity')";
+      $sql = "INSERT INTO books(title, author, category, year_of_publication, isbn, quantity)
+VALUES ('$title', '$author', '$category', '$year_of_publication', '$isbn', '$quantity')";
+$result = $conn->query($sql);
+if ($result=== TRUE) {
+  echo "New record created successfully";
+  } else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+  }
     }
+    
 }

@@ -43,12 +43,9 @@ class AuthorController {
       private function createAuthors() {
         require_once "./Database.php";
         print_r($_POST);
-        $title = $_POST['title'];
-        $author = $_POST['author'];
-        $category = $_POST['year_of_publication'];
-        $isbn = $_POST['isbn'];
-        $quantity = $_POST['quantity'];
-        $sql = "INSERT INTO Books(title, author, category, year_of_publication, isbn, quantity)
-  VALUES ('title', 'author', 'category', 'year_of_publication', 'isbn', 'quantity')";
+        $firstname = $_POST['author_fname'];
+        $lastname = $_POST['author_lname'];
+        $sql = "INSERT INTO Authors(author_fname, author_lname)
+  VALUES ('author_fname', 'author_lname')";
       }
   }
