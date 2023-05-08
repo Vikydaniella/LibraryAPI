@@ -12,8 +12,9 @@ header("Content-type: application/json");
 
 $requesturl = $_SERVER["REQUEST_URI"];
 $requestMethod = $_SERVER["REQUEST_METHOD"];
-$requesturlparts = explode("/",$requesturl); 
-$id = $requesturlparts[3]; 
+$requesturlparts = explode("/",$requesturl);
+$id = $requesturlparts[3] ?? null; 
+
 
 /*$requestmethod = $_SERVER["REQUEST_METHOD"];
 print_r($requesturl);

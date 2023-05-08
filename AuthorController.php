@@ -46,6 +46,12 @@ class AuthorController {
         $firstname = $_POST['author_fname'];
         $lastname = $_POST['author_lname'];
         $sql = "INSERT INTO Authors(author_fname, author_lname)
-  VALUES ('author_fname', 'author_lname')";
+  VALUES ('$author_fname', '$author_lname')";
+  $result = $conn->query($sql);
+  if ($result=== TRUE) {
+    echo "New record created successfully";
+    } else {
+      echo "Error: " . $sql . "<br>" . $conn->error;
+    }
       }
   }

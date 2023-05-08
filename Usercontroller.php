@@ -49,6 +49,12 @@ class UserController {
         $email = $_POST['email'];
         $gender = $_POST['gender'];
         $sql = "INSERT INTO Users(fname, lname, email, gender)
-  VALUES ('fname', 'lname', 'email', 'gender')";
+  VALUES ('$fname', '$lname', '$email', '$gender')";
+  $result = $conn->query($sql);
+  if ($result=== TRUE) {
+    echo "New record created successfully";
+    } else {
+      echo "Error: " . $sql . "<br>" . $conn->error;
+    }
       }
   }
