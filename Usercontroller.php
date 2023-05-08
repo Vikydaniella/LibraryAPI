@@ -12,6 +12,9 @@ class UserController {
         elseif($method == "POST") {
           $this->createUsers();
         }
+        elseif($method == "POST") {
+          $this->deleteUser($id);
+        }
         else{ 
           echo "Invalid Method";
         }
@@ -38,7 +41,6 @@ class UserController {
               $rows[] = $r;
           }
           echo json_encode($rows);
-  
       }
   
       private function createUsers() {
@@ -56,5 +58,16 @@ class UserController {
     } else {
       echo "Error: " . $sql . "<br>" . $conn->error;
     }
+      }
+
+      private function deleteUser(string $id) {
+        require_once "./Database.php";
+          $sql = "SELECT * from books where id='$id'";
+          $result = $conn->query($sql);
+          $rows = array();
+          while ($r = mysqli_fetch_assoc($result)) {
+              $rows[] = $r;
+          }
+          echo json_encode($rows);
       }
   }

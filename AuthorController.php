@@ -12,6 +12,9 @@ class AuthorController {
         elseif($method == "POST") {
           $this->createAuthors();
         }
+        elseif($method == "POST") {
+          $this->deleteAuthor($id);
+        }
         else{ 
           echo "Invalid Method";
         }
@@ -54,4 +57,16 @@ class AuthorController {
       echo "Error: " . $sql . "<br>" . $conn->error;
     }
       }
+
+      private function deleteAuthor(string $id) {
+        require_once "./Database.php";
+          $sql = "DELETE FROM books WHERE id='$id'";
+          $result = $conn->query($sql);
+          $rows = array();
+          while ($r = mysqli_fetch_assoc($result)) {
+              $rows[] = $r;
+          }
+          echo json_encode($rows);
+  
+      }    
   }

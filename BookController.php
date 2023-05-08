@@ -12,6 +12,9 @@ class BookController {
   elseif($method == "POST") {
     $this->createBooks();
   }
+  elseif($method == "POST") {
+    $this->deleteBook($id);
+  }
   else{ 
     echo "Invalid Method";
   }
@@ -37,7 +40,6 @@ class BookController {
             $rows[] = $r;
         }
         echo json_encode($rows);
-
     }
 
     private function createBooks() {
@@ -58,5 +60,15 @@ if ($result=== TRUE) {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }
     }
-    
+   
+    private function deleteBook(string $id) {
+      require_once "./Database.php";
+        $sql = "DELETE FROM books WHERE id='$id'";
+        $result = $conn->query($sql);
+        $rows = array();
+        while ($r = mysqli_fetch_assoc($result)) {
+            $rows[] = $r;
+        }
+        echo json_encode($rows);
+    }    
 }
