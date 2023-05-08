@@ -65,10 +65,10 @@ if ($result=== TRUE) {
       require_once "./Database.php";
         $sql = "DELETE FROM books WHERE id='$id'";
         $result = $conn->query($sql);
-        $rows = array();
-        while ($r = mysqli_fetch_assoc($result)) {
-            $rows[] = $r;
-        }
-        echo json_encode($rows);
-    }    
+        if ($result=== TRUE) {
+          echo "The record deleted @123successfully";
+          } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+          }
+            }
 }

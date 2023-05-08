@@ -46,8 +46,8 @@ class UserController {
       private function createUsers() {
         require_once "./Database.php";
         print_r($_POST);
-        $firstname = $_POST['fname'];
-        $lastname = $_POST['lname'];
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
         $email = $_POST['email'];
         $gender = $_POST['gender'];
         $sql = "INSERT INTO Users(fname, lname, email, gender)

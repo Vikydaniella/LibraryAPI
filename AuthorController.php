@@ -46,8 +46,8 @@ class AuthorController {
       private function createAuthors() {
         require_once "./Database.php";
         print_r($_POST);
-        $firstname = $_POST['author_fname'];
-        $lastname = $_POST['author_lname'];
+        $author_fname = $_POST['author_fname'];
+        $author_lname = $_POST['author_lname'];
         $sql = "INSERT INTO Authors(author_fname, author_lname)
   VALUES ('$author_fname', '$author_lname')";
   $result = $conn->query($sql);
